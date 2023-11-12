@@ -38,6 +38,7 @@ def get_db():
 def save_db(last_aired_db):
     db_ptr.put(Body=json.dumps(last_aired_db))
 
+
 def send_notification(subscribers, show):
     message = f"""\
     {show['name']}
@@ -73,7 +74,6 @@ def process_show_updates(db, secrets):
         next_aired = updated_show['nextAired']
         if next_aired != "" and next_aired != show['lastAired']:
             show['lastAired'] = next_aired
-
             send_notification(show['subscribers'], updated_show)
 
     save_db(db)
