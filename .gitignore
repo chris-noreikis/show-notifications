@@ -3,3 +3,10 @@
 .aws-build
 keys
 venv
+.idea
+db.json
+deploy.sh
+get-object.sh
+put-object.sh
+template.yaml
+samconfig.toml
