@@ -5,7 +5,7 @@ import os
 import boto3
 import tvdb_v4_official
 
-DB_PATH = 'db.json'
+
 s3 = boto3.resource('s3')
 db_ptr = s3.Object('notifications-cn', 'db.json')
 
@@ -35,6 +35,9 @@ def get_db():
     )
 
 
+def save_db(last_aired_db):
+    db_ptr.put(Body=json.dumps(last_aired_db))
+
 def send_notification(subscribers, show):
     message = f"""\
     {show['name']}
@@ -60,10 +63,6 @@ def send_notification(subscribers, show):
                 }
             }
         )
-
-
-def save_db(last_aired_db):
-    db_ptr.put(Body=json.dumps(last_aired_db))
 
 
 def process_show_updates(db, secrets):
