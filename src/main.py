@@ -85,10 +85,3 @@ def lambda_entrypoint(lambda_event, lambda_ctx):
         get_db(),
         get_secrets()
     )
-
-
-if __name__ == '__main__':
-    process_show_updates(
-        get_db(),
-        get_secrets()
-    )
