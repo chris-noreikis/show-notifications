@@ -1,0 +1,5 @@
+.aws-sam
+.aws-sam/**
+.aws-build
+keys
+venv
